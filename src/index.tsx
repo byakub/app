@@ -1,11 +1,20 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Main from "./containers";
-import reportWebVitals from "./reportWebVitals";
+import { ConnectedRouter } from "connected-react-router";
+import * as React from "react";
+import { render } from "react-dom";
+import { Provider } from "react-redux";
 
-ReactDOM.render(
+import { App } from "containers";
+
+import reportWebVitals from "./reportWebVitals";
+import store, { history } from "store";
+
+render(
   <React.StrictMode>
-    <Main />
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <App />
+      </ConnectedRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
