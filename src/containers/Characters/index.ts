@@ -5,10 +5,12 @@ import { bindActionCreators, Dispatch } from "redux";
 
 import Characters from "./Characters";
 
-const mapStateToProps = (state: any) => state;
+import { handleInitAction, IStoreState } from "store";
+
+const mapStateToProps = (state: IStoreState) => state;
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
-  bindActionCreators({}, dispatch);
+  bindActionCreators({ handleInitAction }, dispatch);
 
 const CharactersContainer = connect(
   mapStateToProps,

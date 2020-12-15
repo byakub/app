@@ -1,3 +1,5 @@
+import { ImmutableArray } from 'seamless-immutable';
+
 export interface ICharacter {
   id: number;
   name: string;
@@ -19,7 +21,7 @@ export interface ICharacter {
   created: string;
 }
 
-export interface IGetCharactersResponceInfo {
+export interface ICharactersInfo {
   count: number;
   pages: number;
   next: string | null;
@@ -27,14 +29,10 @@ export interface IGetCharactersResponceInfo {
 }
 
 export interface IGetCharactersResponce {
-  info: IGetCharactersResponceInfo;
-  results: ICharacter[];
-}
-
-export interface ICharactersInitialState {
-  characters: ICharacter[];
+  info: ICharactersInfo; results: ICharacter[] ;
 }
 
 export interface ICharactersState {
-  characters: ICharactersInitialState;
+  charactersList: ImmutableArray<ICharacter>;
+  info: ICharactersInfo
 }

@@ -9,7 +9,7 @@ export const Root: React.FC = () => {
   return (
     <>
       <Switch>
-        <Route path="/" component={Components} />
+        <Route path="/" component={Characters} />
         <Route path={RouteConst.CharactersList} component={Characters} />
         <Redirect to={RouteConst.Root} />
       </Switch>

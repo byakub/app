@@ -3,21 +3,17 @@ import { IGetCharactersResponce } from "./types";
 
 export enum CharactersActionTypeKeys {
   GET_CHARACTERS_LIST = "characters/GET_CHARACTERS_LIST",
-  GET_CHARACTERS_LIST_FULLFILLED = "characters/GET_CHARACTERS_LIST_FULLFILLED",
+  GET_CHARACTERS_LIST_FULFILLED = "characters/GET_CHARACTERS_LIST_FULFILLED",
 }
 
 export interface IGetCharactersListActionType
-  extends IPromiseAction<
-    CharactersActionTypeKeys.GET_CHARACTERS_LIST,
-    Promise<IGetCharactersResponce>
-  > {}
+  extends IPromiseAction<CharactersActionTypeKeys.GET_CHARACTERS_LIST> {}
 
-export interface IGetCharactersListFullfilledActionType
+export interface IGetCharactersListFulfilledActionType
   extends IPromiseAction<
-    CharactersActionTypeKeys.GET_CHARACTERS_LIST_FULLFILLED,
-    Promise<IGetCharactersResponce>
-  > {}
+    CharactersActionTypeKeys.GET_CHARACTERS_LIST_FULFILLED,
+    IGetCharactersResponce> {}
 
 export type ICharacterActionTypes =
   | IGetCharactersListActionType
-  | IGetCharactersListFullfilledActionType;
+  | IGetCharactersListFulfilledActionType;

@@ -3,11 +3,11 @@ import {
   IGetCharactersListActionType,
 } from "./actionTypes";
 
-import { apiClient } from "services";
+import * as api from "./api";
 
 export type GetCharactersListAction = () => IGetCharactersListActionType;
 
 export const getCharactersListAction: GetCharactersListAction = () => ({
   type: CharactersActionTypeKeys.GET_CHARACTERS_LIST,
-  payload: apiClient.get("/characters"),
+  payload: api.getCharactersData(),
 });
