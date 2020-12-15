@@ -3,16 +3,15 @@ import * as React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 
-import { App } from "containers";
-
 import reportWebVitals from "./reportWebVitals";
 import store, { history } from "store";
+import Root from "containers/Root";
 
 render(
   <React.StrictMode>
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <App />
+        <Root />
       </ConnectedRouter>
     </Provider>
   </React.StrictMode>,

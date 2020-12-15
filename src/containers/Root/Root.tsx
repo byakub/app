@@ -1,15 +1,14 @@
+import Characters from "containers/Characters";
 import React from "react";
 import { Redirect, Route, Switch } from "react-router";
 
-import { RouteConst } from "../../consts";
+import { RouteConst } from "consts";
 
-const Root: React.FC = () => {
+export const Root: React.FC = () => {
   return (
     <>
       <Switch>
-        <Route path={RouteConst.PageOne} render={() => <div>Page1</div>} />
-        <Route path={RouteConst.PageTwo} render={() => <div>Page2</div>} />
-        <Route path={RouteConst.PageThree} render={() => <div>Page3</div>} />
+        <Route path={RouteConst.CharactersList} component={Characters} />
         <Redirect to={RouteConst.Root} />
       </Switch>
     </>
