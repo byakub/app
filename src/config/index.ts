@@ -2,7 +2,7 @@ import { ResponseType } from "axios";
 
 const { REACT_APP_API_URL: apiUrl } = process.env;
 
-const configAxios = {
+const axiosConfig = {
   baseURL: apiUrl,
   responseType: "json" as ResponseType,
   headers: {
@@ -10,4 +10,4 @@ const configAxios = {
   },
 }
 
-export default Object.freeze(configAxios);
+export default Object.freeze(axiosConfig);
