@@ -2,18 +2,30 @@ import { IPromiseAction } from "types";
 import { IGetCharactersResponce } from "./types";
 
 export enum CharactersActionTypeKeys {
-  GET_CHARACTERS_LIST = "characters/GET_CHARACTERS_LIST",
-  GET_CHARACTERS_LIST_FULFILLED = "characters/GET_CHARACTERS_LIST_FULFILLED",
+  GET_INIT_CHARACTERS = "characters/GET_INIT_CHARACTERS",
+  GET_INIT_CHARACTERS_FULFILLED = "characters/GET_INIT_CHARACTERS_FULFILLED",
+  GET_CHARACTERS_PAGE = "GET_CHARACTERS_PAGE",
+  GET_CHARACTERS_PAGE_FULFILLED = "GET_CHARACTERS_PAGE_FULFILLED"
+
 }
 
-export interface IGetCharactersListActionType
-  extends IPromiseAction<CharactersActionTypeKeys.GET_CHARACTERS_LIST> {}
+export interface IGetInitCharactersActionType
+  extends IPromiseAction<CharactersActionTypeKeys.GET_INIT_CHARACTERS> {}
 
-export interface IGetCharactersListFulfilledActionType
+export interface IGetCharactersFulfilledActionType
   extends IPromiseAction<
-    CharactersActionTypeKeys.GET_CHARACTERS_LIST_FULFILLED,
+    CharactersActionTypeKeys.GET_INIT_CHARACTERS_FULFILLED,
     IGetCharactersResponce> {}
 
+export interface IGetCharactersPageActionType
+  extends IPromiseAction<CharactersActionTypeKeys.GET_CHARACTERS_PAGE> {}
+
+  export interface IGetCharactersPageFulfilledActionType
+  extends IPromiseAction<
+  CharactersActionTypeKeys.GET_CHARACTERS_PAGE_FULFILLED,
+  IGetCharactersResponce> {}
+
 export type ICharacterActionTypes =
-  | IGetCharactersListActionType
-  | IGetCharactersListFulfilledActionType;
+  | IGetInitCharactersActionType
+  | IGetCharactersFulfilledActionType
+  | IGetCharactersPageFulfilledActionType;

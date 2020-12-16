@@ -1,16 +1,27 @@
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
 
-//import { IStoreState } from "store";
+import {
+  selectCharacters
+} from 'store'
 
 import Characters from "./Characters";
 
-import { handleInitAction, IStoreState } from "store";
+import { 
+  handleInitCharactersAction, 
+  handleCharactersPageAction,
+  IStoreState 
+} from "store";
 
-const mapStateToProps = (state: IStoreState) => state;
+const mapStateToProps = (state: IStoreState) => ({
+  characters: selectCharacters(state)
+});
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
-  bindActionCreators({ handleInitAction }, dispatch);
+  bindActionCreators({ 
+    handleInitCharactersAction,
+    handleCharactersPageAction
+   }, dispatch);
 
 const CharactersContainer = connect(
   mapStateToProps,

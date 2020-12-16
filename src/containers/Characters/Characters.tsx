@@ -1,10 +1,34 @@
 import React, { useEffect } from "react";
 
-export const Characters: React.FC<any> = ({ handleInitAction }) => {
+import { ICharacter } from 'store'
+
+export const Characters: React.FC<any> = props => {
+
+  const {
+    handleInitCharactersAction,
+    handleCharactersPageAction,
+    characters
+  } = props
+
+  console.log(characters)
   useEffect(() => {
-    handleInitAction();
+    handleInitCharactersAction();
   }, []);
-  return <>Hello from Chars!</>;
+  
+  return (
+    <>
+      {characters.map((char: ICharacter) => {
+        return (
+          <div key={char.id}>
+            <p>{char.name}</p>
+            <img src={char.image}/>
+            <a href={char.url}>link</a>
+          </div>
+        )
+      })}
+      <button onClick={()=>{handleCharactersPageAction()}}>Next</button>
+    </>
+  )
 };
 
 export default Characters;

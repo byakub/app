@@ -5,7 +5,7 @@ import { ICharactersState } from "./types";
 
 const charactersInitialState: ImmutableObject<ICharactersState> = Immutable({
   charactersList: Immutable([]),
-  info:{
+  meta:{
     count:0,
     pages:0,
     next:null,
@@ -18,10 +18,15 @@ export const charactersReducer = (
   action: ICharacterActionTypes
 ) => {
   switch (action.type) {
-    case CharactersActionTypeKeys.GET_CHARACTERS_LIST_FULFILLED: {
+    case CharactersActionTypeKeys.GET_INIT_CHARACTERS_FULFILLED: {
       return state
+        .set("meta",action.payload.info)
         .set("charactersList",action.payload.results)
-        .set("info",action.payload.info)
+    }
+    case CharactersActionTypeKeys.GET_CHARACTERS_PAGE_FULFILLED: {
+      return state
+        .set("meta",action.payload.info)
+        .set("charactersList",action.payload.results)
     }
     default:
       return state;

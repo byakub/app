@@ -21,7 +21,7 @@ export interface ICharacter {
   created: string;
 }
 
-export interface ICharactersInfo {
+export interface ICharactersMeta {
   count: number;
   pages: number;
   next: string | null;
@@ -29,10 +29,10 @@ export interface ICharactersInfo {
 }
 
 export interface IGetCharactersResponce {
-  info: ICharactersInfo; results: ICharacter[] ;
+  info: ICharactersMeta; results: ICharacter[] ;
 }
 
 export interface ICharactersState {
   charactersList: ImmutableArray<ICharacter>;
-  info: ICharactersInfo
+  meta: ICharactersMeta
 }
