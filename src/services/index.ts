@@ -1,12 +1,6 @@
-import axios, { AxiosRequestConfig, ResponseType } from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
-const configAxios = {
-  baseURL: "https://rickandmortyapi.com/api",
-  responseType: "json" as ResponseType,
-  headers: {
-    "Content-Type": "application/json",
-  },
-}
+import configAxios from 'config'
 
 export const apiClient = async (config: AxiosRequestConfig) => {
   return await axios({
