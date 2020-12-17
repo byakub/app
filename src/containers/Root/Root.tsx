@@ -1,4 +1,5 @@
 import Characters from "containers/Characters";
+import CharactersPages from "containers/CharactersPages";
 import React from "react";
 import { Redirect, Route, Switch } from "react-router";
 
@@ -8,8 +9,8 @@ export const Root: React.FC = () => {
   return (
     <>
       <Switch>
-        <Route path="/" component={Characters} />
-        <Route path={RouteConst.CharactersList} component={Characters} />
+        <Route path="/" exact component={Characters} />
+        <Route path={RouteConst.CharactersList} component={CharactersPages} />
         <Redirect to={RouteConst.Root} />
       </Switch>
     </>

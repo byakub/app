@@ -5,8 +5,7 @@ export const getCharactersData = () => apiClient({
     url:"/character"
 });
 
-export const getCharactersPage = (url:string) => apiClient({
+export const getCharactersPage = (page:number) => apiClient({
     method:"GET",
-    baseURL:'',
-    url:url,
+    url:`/character/?page=${page}`,
 });

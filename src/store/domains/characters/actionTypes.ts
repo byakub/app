@@ -10,7 +10,8 @@ export enum CharactersActionTypeKeys {
 }
 
 export interface IGetInitCharactersActionType
-  extends IPromiseAction<CharactersActionTypeKeys.GET_INIT_CHARACTERS> {}
+  extends IPromiseAction<
+    CharactersActionTypeKeys.GET_INIT_CHARACTERS> {}
 
 export interface IGetCharactersFulfilledActionType
   extends IPromiseAction<
@@ -20,12 +21,11 @@ export interface IGetCharactersFulfilledActionType
 export interface IGetCharactersPageActionType
   extends IPromiseAction<CharactersActionTypeKeys.GET_CHARACTERS_PAGE> {}
 
-  export interface IGetCharactersPageFulfilledActionType
+export interface IGetCharactersPageFulfilledActionType
   extends IPromiseAction<
-  CharactersActionTypeKeys.GET_CHARACTERS_PAGE_FULFILLED,
-  IGetCharactersResponce> {}
+    CharactersActionTypeKeys.GET_CHARACTERS_PAGE_FULFILLED,
+    IGetCharactersResponce> {}
 
 export type ICharacterActionTypes =
-  | IGetInitCharactersActionType
   | IGetCharactersFulfilledActionType
   | IGetCharactersPageFulfilledActionType;

@@ -9,7 +9,8 @@ const charactersInitialState: ImmutableObject<ICharactersState> = Immutable({
     count:0,
     pages:0,
     next:null,
-    prev:null
+    prev:null,
+    items:0
   }
 });
 
@@ -22,10 +23,10 @@ export const charactersReducer = (
       return state
         .set("meta",action.payload.info)
         .set("charactersList",action.payload.results)
+        .setIn(['meta','items'],action.payload.results.length)
     }
     case CharactersActionTypeKeys.GET_CHARACTERS_PAGE_FULFILLED: {
       return state
-        .set("meta",action.payload.info)
         .set("charactersList",action.payload.results)
     }
     default:

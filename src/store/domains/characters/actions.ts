@@ -15,22 +15,21 @@ export const getInitCharactersAction: GetInitCharactersAction = () => ({
   payload: api.getCharactersData(),
 });
 
-export type GetCharactersPageAction = (url:string) => IGetCharactersPageActionType;
+export type GetCharactersPageAction = (page:number) => IGetCharactersPageActionType;
 
-export const getCharactersPageAction: GetCharactersPageAction = (url) => ({
+export const getCharactersPageAction: GetCharactersPageAction = page => ({
   type: CharactersActionTypeKeys.GET_CHARACTERS_PAGE,
-  payload: api.getCharactersPage(url),
+  payload: api.getCharactersPage(page),
 });
 
-export type HandleCharactersPageAction = () => IThunk<void>;
+export type HandleCharactersPageAction = (page:number) => IThunk<void>;
 
-export const handleCharactersPageAction: HandleCharactersPageAction = () => async (dispatch,getState) => {
-  const state = getState();
-  dispatch(getCharactersPageAction(state.characters.meta.next!));
+export const handleCharactersPageAction: HandleCharactersPageAction = page => async dispatch => {
+  dispatch(getCharactersPageAction(page));
 };
 
 export type HandleInitCharactersAction = () => IThunk<void>;
 
-export const handleInitCharactersAction: HandleInitCharactersAction = () => async (dispatch) => {
+export const handleInitCharactersAction: HandleInitCharactersAction = () => async dispatch => {
   dispatch(getInitCharactersAction());
 };

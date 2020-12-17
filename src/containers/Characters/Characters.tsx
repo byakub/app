@@ -1,32 +1,44 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
-import { ICharacter } from 'store'
+import { ImmutableArray, ImmutableObject } from 'seamless-immutable';
 
-export const Characters: React.FC<any> = props => {
+import { Card } from 'components'
 
+import { 
+  ICharacter,
+  HandleInitCharactersAction,  
+} from 'store'
+
+interface ICharacters {
+  characters: ImmutableArray<ICharacter>,
+  handleInitCharactersAction: HandleInitCharactersAction,
+}
+
+export const Characters: React.FC<ICharacters> = props => {
   const {
+    characters,
     handleInitCharactersAction,
-    handleCharactersPageAction,
-    characters
-  } = props
+  } = props;
 
-  console.log(characters)
   useEffect(() => {
     handleInitCharactersAction();
   }, []);
   
   return (
     <>
-      {characters.map((char: ICharacter) => {
+      <Link to="/characters">To list</Link>
+      <br/>
+      {characters.map((char: ImmutableObject<ICharacter>) => {
         return (
-          <div key={char.id}>
-            <p>{char.name}</p>
-            <img src={char.image}/>
-            <a href={char.url}>link</a>
-          </div>
+          <Card 
+            key={char.id} 
+            name={char.name} 
+            photo={char.image} 
+            link={char.url}
+          />
         )
       })}
-      <button onClick={ ()=> {handleCharactersPageAction()} }>Next</button>
     </>
   )
 };

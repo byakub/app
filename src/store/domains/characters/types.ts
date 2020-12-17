@@ -26,6 +26,7 @@ export interface ICharactersMeta {
   pages: number;
   next: string | null;
   prev: string | null;
+  items:number
 }
 
 export interface IGetCharactersResponce {
