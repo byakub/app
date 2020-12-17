@@ -26,7 +26,7 @@ export const Characters: React.FC<any> = props => {
           </div>
         )
       })}
-      <button onClick={()=>{handleCharactersPageAction()}}>Next</button>
+      <button onClick={ ()=> {handleCharactersPageAction()} }>Next</button>
     </>
   )
 };

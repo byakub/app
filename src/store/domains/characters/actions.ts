@@ -15,7 +15,6 @@ export const getInitCharactersAction: GetInitCharactersAction = () => ({
   payload: api.getCharactersData(),
 });
 
-//---------------------------
 export type GetCharactersPageAction = (url:string) => IGetCharactersPageActionType;
 
 export const getCharactersPageAction: GetCharactersPageAction = (url) => ({
@@ -30,7 +29,6 @@ export const handleCharactersPageAction: HandleCharactersPageAction = () => asyn
   dispatch(getCharactersPageAction(state.characters.meta.next!));
 };
 
-//---------------------------
 export type HandleInitCharactersAction = () => IThunk<void>;
 
 export const handleInitCharactersAction: HandleInitCharactersAction = () => async (dispatch) => {
