@@ -1,4 +1,4 @@
 export enum RouteConst {
-  Root = "/",
-  CharactersList = "/characters",
+  Root = '/',
+  CharactersList = '/characters',
 }

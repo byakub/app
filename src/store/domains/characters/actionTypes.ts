@@ -1,12 +1,11 @@
-import { IPromiseAction } from "types";
-import { IGetCharactersResponce } from "./types";
+import { IPromiseAction } from 'types';
+import { IGetCharactersResponce } from './types';
 
 export enum CharactersActionTypeKeys {
-  GET_INIT_CHARACTERS = "characters/GET_INIT_CHARACTERS",
-  GET_INIT_CHARACTERS_FULFILLED = "characters/GET_INIT_CHARACTERS_FULFILLED",
-  GET_CHARACTERS_PAGE = "GET_CHARACTERS_PAGE",
-  GET_CHARACTERS_PAGE_FULFILLED = "GET_CHARACTERS_PAGE_FULFILLED"
-
+  GET_INIT_CHARACTERS = 'characters/GET_INIT_CHARACTERS',
+  GET_INIT_CHARACTERS_FULFILLED = 'characters/GET_INIT_CHARACTERS_FULFILLED',
+  GET_CHARACTERS_PAGE = 'GET_CHARACTERS_PAGE',
+  GET_CHARACTERS_PAGE_FULFILLED = 'GET_CHARACTERS_PAGE_FULFILLED'
 }
 
 export interface IGetInitCharactersActionType

@@ -26,7 +26,7 @@ export interface ICharactersMeta {
   pages: number;
   next: string | null;
   prev: string | null;
-  items:number
+  items: number;
 }
 
 export interface IGetCharactersResponce {
@@ -35,5 +35,5 @@ export interface IGetCharactersResponce {
 
 export interface ICharactersState {
   charactersList: ImmutableArray<ICharacter>;
-  meta: ICharactersMeta
+  meta: ICharactersMeta;
 }

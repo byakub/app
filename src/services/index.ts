@@ -1,9 +1,9 @@
-import axios, { AxiosRequestConfig } from "axios";
+import axios, { AxiosRequestConfig } from 'axios';
 
-import axiosConfig from 'config'
+import axiosConfig from 'config';
 
 export const apiClient = async (config: AxiosRequestConfig) => {
-  return await axios({
+  return axios({
     ...config,
     ...axiosConfig
   }).then(response => response.data);

@@ -1,13 +1,13 @@
-import { connect } from "react-redux";
-import { bindActionCreators, Dispatch } from "redux";
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
 import {
-  selectCharacters,
   handleInitCharactersAction,
-  IStoreState 
-} from 'store'
+  IStoreState,
+  selectCharacters,
+} from 'store';
 
-import Characters from "./Characters";
+import Characters from './Characters';
 
 const mapStateToProps = (state: IStoreState) => ({
   characters: selectCharacters(state),
@@ -16,7 +16,7 @@ const mapStateToProps = (state: IStoreState) => ({
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators({ 
     handleInitCharactersAction
-   }, dispatch);
+  }, dispatch);
 
 const CharactersContainer = connect(
   mapStateToProps,

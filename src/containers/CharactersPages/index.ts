@@ -1,14 +1,14 @@
-import { connect } from "react-redux";
-import { bindActionCreators, Dispatch } from "redux";
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
 import {
+  handleCharactersPageAction,
+  IStoreState,
   selectCharacters,
   selectMetaCharacters,
-  handleCharactersPageAction,
-  IStoreState 
-} from 'store'
+} from 'store';
 
-import CharactersPages from "./CharactersPages";
+import CharactersPages from './CharactersPages';
 
 const mapStateToProps = (state: IStoreState) => ({
   characters: selectCharacters(state),
@@ -18,7 +18,7 @@ const mapStateToProps = (state: IStoreState) => ({
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators({ 
     handleCharactersPageAction,
-   }, dispatch);
+  }, dispatch);
 
 const CharactersPagesContainer = connect(
   mapStateToProps,

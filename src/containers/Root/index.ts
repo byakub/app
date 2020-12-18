@@ -1,7 +1,7 @@
-import { connect } from "react-redux";
-import { bindActionCreators, Dispatch } from "redux";
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
-import Root from "./Root";
+import Root from './Root';
 
 const mapStateToProps = (state: any) => state;
 

@@ -1,6 +1,6 @@
-import { AnyAction, Dispatch } from "redux";
-import { ThunkAction, ThunkDispatch } from "redux-thunk";
-import { IStoreState } from "store";
+import { AnyAction } from 'redux';
+import { ThunkAction } from 'redux-thunk';
+import { IStoreState } from 'store';
 
 export type IThunk<R> = ThunkAction<R, IStoreState, {}, AnyAction>;
 
