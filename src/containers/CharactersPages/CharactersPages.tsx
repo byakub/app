@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import { ImmutableArray, ImmutableObject } from 'seamless-immutable';
 
@@ -16,8 +15,11 @@ import {
 } from 'store';
 
 const Wrapper = styled.div`
+  padding: 1rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
 `;
 
 interface ICharacters {
@@ -38,22 +40,9 @@ export const CharactersPages: React.FC<ICharacters> = props => {
   useEffect(() => {
     handleCharactersPageAction(page);
   }, [page]);
-
+  
   return (
     <>
-      <Link to="/">To Home Page</Link>
-      <Wrapper>
-      {characters.map((char: ImmutableObject<ICharacter>) => {
-        return (
-          <Card 
-            key={char.id} 
-            name={char.name} 
-            photo={char.image} 
-            link={char.gender}
-          />
-        );
-      })}
-      </Wrapper>
       <Pagination
         current={page} 
         onChange={ page => setPage(page)} 
@@ -62,9 +51,22 @@ export const CharactersPages: React.FC<ICharacters> = props => {
         pageSizeOptions={[]}
         style={{
           textAlign: 'center',
-          padding: '1rem'
+          paddingTop: '1rem'
         }}
       />
+      <Wrapper>
+      {characters.map((char: ImmutableObject<ICharacter>) => {
+        return (
+          <Card 
+            key={char.id} 
+            name={char.name} 
+            photo={char.image} 
+            status={char.gender}
+            species={char.species}
+          />
+        );
+      })}
+      </Wrapper>
     </>
   );
 };

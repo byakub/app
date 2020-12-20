@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
@@ -18,8 +17,11 @@ interface ICharacters {
 }
 
 const Wrapper = styled.div`
+  padding: 1rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
 `;
 
 export const Characters: React.FC<ICharacters> = props => {
@@ -34,8 +36,6 @@ export const Characters: React.FC<ICharacters> = props => {
   
   return (
     <>
-      <Link to="/characters">To list</Link>
-      <br/>
       <Wrapper>
       {characters.map((char: ImmutableObject<ICharacter>) => {
         return (
@@ -43,9 +43,10 @@ export const Characters: React.FC<ICharacters> = props => {
             key={char.id} 
             name={char.name} 
             photo={char.image} 
-            link={char.status}
+            status={char.status}
+            species={char.species}
           />
-        )
+        );
       })}
       </Wrapper>
     </>
