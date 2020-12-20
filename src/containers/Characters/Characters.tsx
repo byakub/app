@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 
-import styled from 'styled-components';
+import { ImmutableArray } from 'seamless-immutable';
 
-import { ImmutableArray, ImmutableObject } from 'seamless-immutable';
-
-import { Card } from 'components';
+import { HomePage } from 'components/HomePage';
 
 import { 
   HandleInitCharactersAction,  
@@ -15,14 +13,6 @@ interface ICharacters {
   characters: ImmutableArray<ICharacter>;
   handleInitCharactersAction: HandleInitCharactersAction;
 }
-
-const Wrapper = styled.div`
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
-  align-items: center;
-`;
 
 export const Characters: React.FC<ICharacters> = props => {
   const {
@@ -36,19 +26,7 @@ export const Characters: React.FC<ICharacters> = props => {
   
   return (
     <>
-      <Wrapper>
-      {characters.map((char: ImmutableObject<ICharacter>) => {
-        return (
-          <Card 
-            key={char.id} 
-            name={char.name} 
-            photo={char.image} 
-            status={char.status}
-            species={char.species}
-          />
-        );
-      })}
-      </Wrapper>
+      <HomePage/>
     </>
   );
 };

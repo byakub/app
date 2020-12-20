@@ -18,7 +18,6 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr 8fr 6fr 1fr;
   font-size: 1.2rem;
   border-bottom: 2px solid black;
-  background-color: #97ce4c;
   color: #44281d;
   
   .navbar-logo{
