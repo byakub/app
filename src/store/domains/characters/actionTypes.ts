@@ -5,7 +5,9 @@ export enum CharactersActionTypeKeys {
   GET_INIT_CHARACTERS = 'characters/GET_INIT_CHARACTERS',
   GET_INIT_CHARACTERS_FULFILLED = 'characters/GET_INIT_CHARACTERS_FULFILLED',
   GET_CHARACTERS_PAGE = 'GET_CHARACTERS_PAGE',
-  GET_CHARACTERS_PAGE_FULFILLED = 'GET_CHARACTERS_PAGE_FULFILLED'
+  GET_CHARACTERS_PAGE_FULFILLED = 'GET_CHARACTERS_PAGE_FULFILLED',
+  GET_CHARACTER = 'GET_CHARACTER',
+  GET_CHARACTER_FULFILLED = 'GET_CHARACTER_FULFILLED'
 }
 
 export interface IGetInitCharactersActionType
@@ -25,6 +27,17 @@ export interface IGetCharactersPageFulfilledActionType
     CharactersActionTypeKeys.GET_CHARACTERS_PAGE_FULFILLED,
     IGetCharactersResponce> {}
 
+export interface IGetCharacterActionType
+  extends IPromiseAction<CharactersActionTypeKeys.GET_CHARACTER> {}
+  
+export interface IGetCharacterFulfilledActionType
+  extends IPromiseAction<
+      CharactersActionTypeKeys.GET_CHARACTER_FULFILLED,
+      IGetCharactersResponce> {}
+
 export type ICharacterActionTypes =
   | IGetCharactersFulfilledActionType
-  | IGetCharactersPageFulfilledActionType;
+  | IGetCharactersPageFulfilledActionType
+  | IGetCharacterActionType
+  | IGetCharacterFulfilledActionType;
+

@@ -14,7 +14,6 @@ const Wrapper = styled.div`
 
   .footer-info{
     line-height: 2;
-    border: 1px dashed red;
     padding: 1rem 8rem;
     color: #f0e14a;
     background-color: #44281d;

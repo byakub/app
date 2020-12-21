@@ -1,8 +1,11 @@
 import {
   CharactersActionTypeKeys,
+  IGetCharacterActionType,
   IGetCharactersPageActionType,
   IGetInitCharactersActionType,
 } from './actionTypes';
+
+import { selectCharacters } from './selectors';
 
 import { IThunk } from 'types';
 
@@ -21,6 +24,21 @@ export const getCharactersPageAction: GetCharactersPageAction = page => ({
   type: CharactersActionTypeKeys.GET_CHARACTERS_PAGE,
   payload: api.getCharactersPage(page),
 });
+
+export type GetCharacterAction = (character: object) => IGetCharacterActionType;
+
+export const getCharacterAction: GetCharacterAction = character => ({
+  type: CharactersActionTypeKeys.GET_CHARACTER,
+  payload: character,
+});
+
+export type HandleCharacterAction = (id: number) => IThunk<void>;
+
+export const handleCharacterAction: HandleCharacterAction = id => async (dispatch, getState) => {
+  const state = selectCharacters(getState());
+  const character = state.find(character => character.id === id) || api.getCharacterData(id);
+  dispatch(getCharacterAction(character));
+};
 
 export type HandleCharactersPageAction = (page: number) => IThunk<void>;
 

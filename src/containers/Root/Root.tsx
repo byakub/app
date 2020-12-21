@@ -1,7 +1,8 @@
 import { Footer } from 'components/Footer';
 import { Navbar } from 'components/Navbar';
+import CharacterProfile from 'containers/CharacterProfile';
 import Characters from 'containers/Characters';
-import CharactersPages from 'containers/CharactersPages';
+import Main from 'containers/Main';
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router';
 
@@ -12,9 +13,9 @@ export const Root: React.FC = () => {
     <>
       <Navbar/>
       <Switch>
-        <Route path="/" exact={true} component={Characters} />
-        <Route path={RouteConst.CharactersList} component={CharactersPages} />
-        <Redirect to={RouteConst.Root} />
+        <Route path="/" exact={true} component={Main} />
+        <Route path={`${RouteConst.Character}/:id`} component={CharacterProfile} />
+        <Route path={RouteConst.CharactersList} component={Characters} />
       </Switch>
       <Footer/>
     </>

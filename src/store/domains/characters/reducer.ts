@@ -11,6 +11,26 @@ const charactersInitialState: ImmutableObject<ICharactersState> = Immutable({
     next: null,
     prev: null,
     items: 0
+  },
+  character: {
+    id: 0,
+    name: '',
+    status: '',
+    species: '',
+    type: '',
+    gender: '',
+    origin: {
+      name: '',
+      url: '',
+    },
+    location: {
+      name: '',
+      url: '',
+    },
+    image: '',
+    episode: [],
+    url: '',
+    created: '',
   }
 });
 
@@ -28,6 +48,14 @@ export const charactersReducer = (
     case CharactersActionTypeKeys.GET_CHARACTERS_PAGE_FULFILLED: {
       return state
         .set('charactersList', action.payload.results);
+    }
+    case CharactersActionTypeKeys.GET_CHARACTER: {
+      return state
+        .set('character', action.payload);
+    }
+    case CharactersActionTypeKeys.GET_CHARACTER_FULFILLED: {
+      return state
+        .set('character', action.payload);
     }
     default:
       return state;

@@ -1,7 +1,6 @@
 import { createFromIconfontCN } from '@ant-design/icons';
 
 import React from 'react';
-import Clock from 'react-live-clock';
 import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
@@ -42,18 +41,6 @@ const Wrapper = styled.div`
     }
   }
 
-  .navbar-social{
-    margin: auto;
-    .social-link{
-      padding: 0 3rem;
-    }
-  }
-
-  .navbar-date{
-    margin: auto;
-    padding-right:1rem;
-  }
-
 `;
 
 interface ICardProps {
@@ -71,17 +58,6 @@ export const Navbar: React.FC<ICardProps> = () => {
       <div className="navbar-links">
         <Link className="link" to="/characters">characterS</Link>
         <Link className="link" to="/about">abouT</Link>
-      </div>
-      <div className="navbar-social">
-        <a className="social-link" target="_blank" href="https://twitter.com">
-          <IconFont type="icon-twitter" />
-        </a>
-        <a className="social-link" target="_blank" href="https://facebook.com">
-          <IconFont type="icon-facebook" />
-        </a>
-      </div>
-      <div className="navbar-date">
-        <Clock format={'HH:mm:ss'} ticking={true}/>
       </div>
     </Wrapper>
   );

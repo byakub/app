@@ -46,10 +46,12 @@ interface ICardProps {
   photo: string;
   status: string;
   species: string;
+  id: number;
+  characterInfo: (id: number) => void;
 }
 
-export const Card: React.FC<ICardProps> = ({ name, photo, status, species }) => (
-  <Wrapper>
+export const Card: React.FC<ICardProps> = ({ name, photo, status, species, id, characterInfo }) => (
+  <Wrapper onClick={() => characterInfo(id)}>
     <div className="card-title">{name}</div>
     <div className="card-body">
       <div className="card-info">

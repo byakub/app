@@ -36,4 +36,5 @@ export interface IGetCharactersResponce {
 export interface ICharactersState {
   charactersList: ImmutableArray<ICharacter>;
   meta: ICharactersMeta;
+  character: ICharacter;
 }
