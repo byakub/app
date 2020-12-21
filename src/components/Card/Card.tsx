@@ -16,6 +16,9 @@ const Wrapper = styled.div`
     text-align: center;
     background: #83d2e4;
     color: #44281d;
+    font-size: 1rem;
+    font-weight: 500;
+    height:100%;
   }
 
   .card-body{
@@ -30,6 +33,16 @@ const Wrapper = styled.div`
         line-height: 1.35;
         padding-left: 1rem;
         font-size: 1rem;
+
+        h2{
+          font-size: 1rem;
+          font-weight: bold;
+        }
+
+        h3{
+          padding-left:1rem;
+          font-size: 0.7rem;
+        }
       }
     }
 
@@ -45,22 +58,24 @@ interface ICardProps {
   name: string;
   photo: string;
   status: string;
+  location: string;
   species: string;
+  episode: number;
   id: number;
   characterInfo: (id: number) => void;
 }
 
-export const Card: React.FC<ICardProps> = ({ name, photo, status, species, id, characterInfo }) => (
+export const Card: React.FC<ICardProps> = ({ name, photo, status, location, episode, id, species, characterInfo }) => (
   <Wrapper onClick={() => characterInfo(id)}>
     <div className="card-title">{name}</div>
     <div className="card-body">
       <div className="card-info">
         <div className="card-info-body">
-          Status : {status}
-          <br/>
-          Race : {species}
-          <br/>
-          Race : {species}
+          <h2>{status} - {species}</h2>
+          <h2>Last known location:</h2>
+          <h3>{location}</h3>
+          <h2>Count of episodes:</h2>
+          <h3>{episode}</h3>
         </div>
       </div>
       <div className="card-image">

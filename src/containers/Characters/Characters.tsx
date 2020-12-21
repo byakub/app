@@ -21,7 +21,10 @@ import {
 } from 'store';
 
 const Wrapper = styled.div`
+  position: relative;
+  bottom: 350px;
   padding: 1rem;
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
@@ -57,11 +60,13 @@ export const Characters: React.FC<ICharacters> = props => {
       {metaCharacters.count === 0 && <Redirect to={RouteConst.Root} />}
       <Pagination
         current={page} 
-        onChange={ page => setPage(page)} 
+        onChange={ pageNum => setPage(pageNum)} 
         total={metaCharacters.count}
         defaultPageSize={metaCharacters.items}
         pageSizeOptions={[]}
         style={{
+          position: 'relative',
+          bottom: '350px',
           textAlign: 'center',
           paddingTop: '1rem'
         }}
@@ -75,8 +80,10 @@ export const Characters: React.FC<ICharacters> = props => {
             id={char.id} 
             name={char.name} 
             photo={char.image} 
-            status={char.gender}
+            status={char.status}
+            location={char.location.name}
             species={char.species}
+            episode={char.episode.length}
           />
         );
       })}

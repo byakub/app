@@ -49,9 +49,9 @@ export const charactersReducer = (
       return state
         .set('charactersList', action.payload.results);
     }
-    case CharactersActionTypeKeys.GET_CHARACTER: {
+    case CharactersActionTypeKeys.SET_CHARACTER: {
       return state
-        .set('character', action.payload);
+        .set('character', action.value);
     }
     case CharactersActionTypeKeys.GET_CHARACTER_FULFILLED: {
       return state

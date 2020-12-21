@@ -4,13 +4,13 @@ import { bindActionCreators, Dispatch } from 'redux';
 import {
   handleInitCharactersAction,
   IStoreState,
-  selectCharacters,
+  mainCharactersSelector,
 } from 'store';
 
-import Main from './Main';
+import HomePage from './HomePage';
 
 const mapStateToProps = (state: IStoreState) => ({
-  characters: selectCharacters(state),
+  mainCharacters: mainCharactersSelector(state),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
@@ -18,9 +18,9 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
     handleInitCharactersAction
   }, dispatch);
 
-const MainContainer = connect(
+const HomePageContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Main);
+)(HomePage);
 
-export default MainContainer;
+export default HomePageContainer;

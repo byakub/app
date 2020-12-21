@@ -1,12 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { createFromIconfontCN } from '@ant-design/icons';
-const IconFont = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
-});
 
 const Wrapper = styled.div`
+  margin-top:-350px;
   height: 3rem;
   padding-top: 1rem;
   text-align: center;
@@ -34,9 +31,10 @@ export const Footer: React.FC<ICardProps> = () => {
   return(
     <Wrapper>
       <div className="footer-info">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Eligendi nostrum laboriosam, quis nulla voluptatem quibusdam voluptatibus 
-        animi doloremque fugiat eum sapiente numquam, nesciunt sint necessitatibus.
+      I mixed in some praying mantis DNA. 
+      You know a praying mantis is the exact opposite of a vole, Morty? 
+      They mate once and then bluergh cut each other's heads off. 
+      I turned myself into a pickle, Morty! Boom! Big reveal! I'm a pickle!
       </div>
       <div className="footer-cp">
         &copy; 2020 Copyright. All right reserved.
@@ -44,5 +42,3 @@ export const Footer: React.FC<ICardProps> = () => {
     </Wrapper>
   );
 };
-
-//<img src="https://assets.stickpng.com/images/58f37720a4fa116215a9240f.png"/>

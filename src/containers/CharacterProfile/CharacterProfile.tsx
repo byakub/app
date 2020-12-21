@@ -7,7 +7,7 @@ import {
 
 import { useParams } from 'react-router-dom';
 
-import { Profile } from 'components/Profile';
+import { Profile } from 'components';
 
 interface ICharacterProfile {
   character: ICharacter;

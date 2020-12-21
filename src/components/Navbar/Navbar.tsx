@@ -1,43 +1,39 @@
-import { createFromIconfontCN } from '@ant-design/icons';
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-const IconFont = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
-});
-
 const Wrapper = styled.div`
   
-  height: 50px;
+  height: 500px;
   padding: 0.5rem 0;
   display: grid;
-  grid-template-columns: 1fr 8fr 6fr 1fr;
+  grid-template-columns: 3fr 10fr 3fr;
   font-size: 1.2rem;
-  border-bottom: 2px solid black;
-  color: #44281d;
-  
+  background-image: url(https://img4.goodfon.com/wallpaper/nbig/1/c1/rick-and-morty-rick-space-morty-rik-morti-kosmos-zvezdy-glaz.jpg), radial-gradient(gray 1px, transparent 1px);
+  background-size:auto auto, 50px 50px;
+  background-blend-mode: darken;  
+
+  .navbar-sitename{
+    padding-left: 2rem;
+    color: #f0e14a;
+    font-weight: bold;
+  }
+
   .navbar-logo{
-    position: relative;
+    text-align: center;
 
     .logo {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      max-height: 100%;
-      max-width: 100%;
+      max-height: 20%;
+      max-width: 20%;
     }
   }
 
   .navbar-links{
-    margin: auto 0;
-    
     .link{
       padding: 0 1.5rem;
-      color: #44281d;
+      color: #f0e14a;
+      font-weight: bold;
     }
   }
 
@@ -50,6 +46,9 @@ interface ICardProps {
 export const Navbar: React.FC<ICardProps> = () => {
   return(
     <Wrapper>
+      <div className="navbar-sitename">
+        Rick and Morty
+      </div>
       <div className="navbar-logo">
         <Link to="/">
           <img className="logo" src="https://img2.pngio.com/download-s-i-turned-myself-into-a-stencil-morty-im-stencil-rick-and-morty-black-and-white-png-1013_1285.png"/>

@@ -3,7 +3,10 @@ import {
   IGetCharacterActionType,
   IGetCharactersPageActionType,
   IGetInitCharactersActionType,
+  ISetCharacterActionType,
 } from './actionTypes';
+
+import { ICharacter } from './types';
 
 import { selectCharacters } from './selectors';
 
@@ -15,7 +18,7 @@ export type GetInitCharactersAction = () => IGetInitCharactersActionType;
 
 export const getInitCharactersAction: GetInitCharactersAction = () => ({
   type: CharactersActionTypeKeys.GET_INIT_CHARACTERS,
-  payload: api.getCharactersData(),
+  payload: api.getCharacters(),
 });
 
 export type GetCharactersPageAction = (page: number) => IGetCharactersPageActionType;
@@ -25,19 +28,30 @@ export const getCharactersPageAction: GetCharactersPageAction = page => ({
   payload: api.getCharactersPage(page),
 });
 
-export type GetCharacterAction = (character: object) => IGetCharacterActionType;
+export type SetCharacterAction = (character: ICharacter) => ISetCharacterActionType;
 
-export const getCharacterAction: GetCharacterAction = character => ({
+export const setCharacterAction: SetCharacterAction = character => ({
+  type: CharactersActionTypeKeys.SET_CHARACTER,
+  value: character,
+});
+
+export type GetCharacterAction = (id: number) => IGetCharacterActionType;
+
+export const getCharacterAction: GetCharacterAction = id => ({
   type: CharactersActionTypeKeys.GET_CHARACTER,
-  payload: character,
+  payload: api.getCharacter(id),
 });
 
 export type HandleCharacterAction = (id: number) => IThunk<void>;
 
 export const handleCharacterAction: HandleCharacterAction = id => async (dispatch, getState) => {
-  const state = selectCharacters(getState());
-  const character = state.find(character => character.id === id) || api.getCharacterData(id);
-  dispatch(getCharacterAction(character));
+  const characters = selectCharacters(getState());
+  const character = characters.find(char => char.id === id);
+  console.log(character,'character');
+  character !== undefined ? 
+    dispatch(setCharacterAction(character))
+    :
+    dispatch(getCharacterAction(id));
 };
 
 export type HandleCharactersPageAction = (page: number) => IThunk<void>;

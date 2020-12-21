@@ -1,6 +1,6 @@
 import { apiClient } from 'services';
 
-export const getCharactersData = () => apiClient({
+export const getCharacters = () => apiClient({
   method: 'GET',
   url: '/character'
 });
@@ -10,7 +10,7 @@ export const getCharactersPage = (page: number) => apiClient({
   url: `/character/?page=${page}`,
 });
 
-export const getCharacterData = (id: number) => apiClient({
+export const getCharacter = (id: number) => apiClient({
   method: 'GET',
   url: `/character/${id}`,
 });
