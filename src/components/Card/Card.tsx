@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
+interface IStatusProps {
+  readonly status: string;
+}
+
+const Wrapper = styled.div<IStatusProps>`
   font-family: "MS Sans Serif", Tahoma, Verdana, Segoe, sans-serif; 
   border-top-left-radius: 10px; 
   border-top-right-radius: 10px; 
@@ -43,6 +47,23 @@ const Wrapper = styled.div`
           padding-left:1rem;
           font-size: 0.7rem;
         }
+
+        .status{
+          line-height:1;
+
+          .status-icon{
+            padding-right: .5rem;
+            font-size: 2.5rem;
+            color: ${props => 
+              (props.status === 'Alive' ? '#55cc44' : props.status === 'Dead' ? '#d63d2e' : '#9e9e9e')};
+            vertical-align:middle;
+          }
+
+          .status-text{
+            vertical-align:middle;
+            font-weight: bold;
+          }
+        }
       }
     }
 
@@ -51,6 +72,22 @@ const Wrapper = styled.div`
         max-width: 100%;
       }
     }
+  }
+  
+  .card-button{
+    display: block;
+    text-align: center;
+    background: #f0e14a;
+    color: #44281d;
+    font-size: 1rem;
+    font-weight: 500;
+    height:100%;
+    width:100%;
+  }
+
+  .card-button:hover {
+    background: #44281d;
+    color: #f0e14a;
   }
 `;
 
@@ -66,12 +103,19 @@ interface ICardProps {
 }
 
 export const Card: React.FC<ICardProps> = ({ name, photo, status, location, episode, id, species, characterInfo }) => (
-  <Wrapper onClick={() => characterInfo(id)}>
+  <Wrapper status={status} >
     <div className="card-title">{name}</div>
     <div className="card-body">
       <div className="card-info">
         <div className="card-info-body">
-          <h2>{status} - {species}</h2>
+          <div className="status">
+            <span className="status-icon">
+              •
+            </span>
+            <span className="status-text">
+              {status} - {species}
+            </span>
+          </div>
           <h2>Last known location:</h2>
           <h3>{location}</h3>
           <h2>Count of episodes:</h2>
@@ -82,5 +126,6 @@ export const Card: React.FC<ICardProps> = ({ name, photo, status, location, epis
         <img className="image" src={photo} alt={name}/>
       </div>
     </div>
+    <button onClick={() => characterInfo(id)} className="card-button">All info about {name}</button>
   </Wrapper>
 );

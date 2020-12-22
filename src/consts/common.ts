@@ -3,3 +3,7 @@ export enum RouteConst {
   CharactersList = '/characters',
   Character = '/character',
 }
+
+export enum DateFormatConst {
+  default = 'Do MMMM YYYY, h:mm:ss'
+}

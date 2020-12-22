@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import { ImmutableArray, ImmutableObject } from 'seamless-immutable';
 
@@ -17,7 +17,8 @@ import { RouteConst } from 'consts';
 import {
   HandleCharactersPageAction,
   ICharacter,
-  ICharactersMeta, 
+  ICharactersMeta,
+  SetCurrentPageAction
 } from 'store';
 
 const Wrapper = styled.div`
@@ -35,21 +36,27 @@ interface ICharacters {
   characters: ImmutableArray<ICharacter>;
   metaCharacters: ICharactersMeta;
   handleCharactersPageAction: HandleCharactersPageAction;
+  setCurrentPageAction: SetCurrentPageAction;
 }
 
 export const Characters: React.FC<ICharacters> = props => {
   const {
     handleCharactersPageAction,
     characters,
-    metaCharacters
+    metaCharacters,
+    setCurrentPageAction
   } = props;
 
   const history = useHistory();
-  const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
-    handleCharactersPageAction(page);
-  }, [page]);
+    handleCharactersPageAction(metaCharacters.page);
+    window.scrollTo(0, 0);
+  }, [metaCharacters.page]);
+
+  const setPageHandler = (pageNum: number) => {
+    setCurrentPageAction(pageNum);
+  };
 
   const characterInfoHandler = (id: number) => {
     history.push(`/character/${id}`);
@@ -58,19 +65,6 @@ export const Characters: React.FC<ICharacters> = props => {
   return (
     <>
       {metaCharacters.count === 0 && <Redirect to={RouteConst.Root} />}
-      <Pagination
-        current={page} 
-        onChange={ pageNum => setPage(pageNum)} 
-        total={metaCharacters.count}
-        defaultPageSize={metaCharacters.items}
-        pageSizeOptions={[]}
-        style={{
-          position: 'relative',
-          bottom: '350px',
-          textAlign: 'center',
-          paddingTop: '1rem'
-        }}
-      />
       <Wrapper>
       {characters.map((char: ImmutableObject<ICharacter>) => {
         return (
@@ -88,6 +82,19 @@ export const Characters: React.FC<ICharacters> = props => {
         );
       })}
       </Wrapper>
+      <Pagination
+        current={metaCharacters.page || 1}
+        onChange={pageNum => setPageHandler(pageNum)} 
+        total={metaCharacters.count}
+        defaultPageSize={metaCharacters.items}
+        pageSizeOptions={[]}
+        style={{
+          position: 'relative',
+          bottom: '350px',
+          textAlign: 'center',
+          paddingTop: '1rem'
+        }}
+      />
     </>
   );
 };

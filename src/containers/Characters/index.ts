@@ -6,6 +6,7 @@ import {
   IStoreState,
   selectCharacters,
   selectMetaCharacters,
+  setCurrentPageAction
 } from 'store';
 
 import Characters from './Characters';
@@ -18,6 +19,7 @@ const mapStateToProps = (state: IStoreState) => ({
 const mapDispatchToProps = (dispatch: Dispatch) =>
   bindActionCreators({ 
     handleCharactersPageAction,
+    setCurrentPageAction
   }, dispatch);
 
 const CharactersContainer = connect(

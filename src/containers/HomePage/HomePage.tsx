@@ -48,6 +48,20 @@ const Wrapper = styled.div`
     }
   }
   
+  .characters-button{
+    display: block;
+    margin: 1rem auto;
+    background: #44281d;
+    color: #f0e14a;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .characters-button:hover {
+    background: #f0e14a;
+    color: #44281d;
+  }
+
   .info-text{
     text-align: center;
   }
@@ -70,12 +84,17 @@ export const HomePage: React.FC<ICharacters> = props => {
 
   useEffect(() => {
     handleInitCharactersAction();
+    window.scrollTo(0, 0);
   }, []);
   
   const history = useHistory();
 
   const characterInfoHandler = (id: number) => {
     history.push(`/character/${id}`);
+  };
+
+  const charactersPageHandler = () => {
+    history.push('/characters/');
   };
 
   return (
@@ -106,10 +125,12 @@ export const HomePage: React.FC<ICharacters> = props => {
          />
       )}
       </Cards>
+      <button  onClick={() => { charactersPageHandler(); }} className="characters-button">Go to all characters</button>
       <div className="info-text">
       Then I used my dream inceptors to put the two of us inside Snuffles' dream. 
       You're young, you have your whole life ahead of you, and your anal cavity is still taut yet malleable.
       </div>
+      
     </Wrapper>
   );
 };

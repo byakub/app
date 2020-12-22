@@ -24,9 +24,8 @@ export interface ICharacter {
 export interface ICharactersMeta {
   count: number;
   pages: number;
-  next: string | null;
-  prev: string | null;
   items: number;
+  page: number;
 }
 
 export interface IGetCharactersResponce {

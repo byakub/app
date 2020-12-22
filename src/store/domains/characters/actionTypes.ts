@@ -8,7 +8,8 @@ export enum CharactersActionTypeKeys {
   GET_CHARACTERS_PAGE_FULFILLED = 'GET_CHARACTERS_PAGE_FULFILLED',
   GET_CHARACTER = 'GET_CHARACTER',
   GET_CHARACTER_FULFILLED = 'GET_CHARACTER_FULFILLED',
-  SET_CHARACTER = 'SET_CHARACTER'
+  SET_CHARACTER = 'SET_CHARACTER',
+  SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 }
 
 export interface IGetInitCharactersActionType
@@ -26,6 +27,11 @@ export interface IGetCharactersPageActionType
 export interface ISetCharacterActionType {
   type: CharactersActionTypeKeys.SET_CHARACTER;
   value: ICharacter;
+}
+
+export interface ISetCurrentPageActionType {
+  type: CharactersActionTypeKeys.SET_CURRENT_PAGE;
+  value: number;
 }
 
 export interface IGetCharactersPageFulfilledActionType
@@ -46,4 +52,5 @@ export type ICharacterActionTypes =
   | IGetCharactersPageFulfilledActionType
   | IGetCharacterActionType
   | IGetCharacterFulfilledActionType
-  | ISetCharacterActionType;
+  | ISetCharacterActionType
+  | ISetCurrentPageActionType;

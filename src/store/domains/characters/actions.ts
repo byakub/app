@@ -4,6 +4,7 @@ import {
   IGetCharactersPageActionType,
   IGetInitCharactersActionType,
   ISetCharacterActionType,
+  ISetCurrentPageActionType
 } from './actionTypes';
 
 import { ICharacter } from './types';
@@ -33,6 +34,13 @@ export type SetCharacterAction = (character: ICharacter) => ISetCharacterActionT
 export const setCharacterAction: SetCharacterAction = character => ({
   type: CharactersActionTypeKeys.SET_CHARACTER,
   value: character,
+});
+
+export type SetCurrentPageAction = (page: number) => ISetCurrentPageActionType;
+
+export const setCurrentPageAction: SetCurrentPageAction = page => ({
+  type: CharactersActionTypeKeys.SET_CURRENT_PAGE,
+  value: page,
 });
 
 export type GetCharacterAction = (id: number) => IGetCharacterActionType;

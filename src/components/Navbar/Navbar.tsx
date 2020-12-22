@@ -51,12 +51,11 @@ export const Navbar: React.FC<ICardProps> = () => {
       </div>
       <div className="navbar-logo">
         <Link to="/">
-          <img className="logo" src="https://img2.pngio.com/download-s-i-turned-myself-into-a-stencil-morty-im-stencil-rick-and-morty-black-and-white-png-1013_1285.png"/>
+          <img className="logo" alt="" src="https://img2.pngio.com/download-s-i-turned-myself-into-a-stencil-morty-im-stencil-rick-and-morty-black-and-white-png-1013_1285.png"/>
         </Link>
       </div>
       <div className="navbar-links">
         <Link className="link" to="/characters">characterS</Link>
-        <Link className="link" to="/about">abouT</Link>
       </div>
     </Wrapper>
   );

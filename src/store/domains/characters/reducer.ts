@@ -8,9 +8,8 @@ const charactersInitialState: ImmutableObject<ICharactersState> = Immutable({
   meta: {
     count: 0,
     pages: 0,
-    next: null,
-    prev: null,
-    items: 0
+    items: 0,
+    page: 1
   },
   character: {
     id: 0,
@@ -52,6 +51,10 @@ export const charactersReducer = (
     case CharactersActionTypeKeys.SET_CHARACTER: {
       return state
         .set('character', action.value);
+    }
+    case CharactersActionTypeKeys.SET_CURRENT_PAGE: {
+      return state
+        .setIn(['meta', 'page'], action.value);
     }
     case CharactersActionTypeKeys.GET_CHARACTER_FULFILLED: {
       return state
