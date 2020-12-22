@@ -7,6 +7,7 @@ import 'antd/dist/antd.css';
 
 import Root from 'containers/Root';
 import store, { history } from 'store';
+
 import reportWebVitals from './reportWebVitals';
 
 render(

@@ -55,7 +55,7 @@ const Wrapper = styled.div<IStatusProps>`
             padding-right: .5rem;
             font-size: 2.5rem;
             color: ${props => 
-              (props.status === 'Alive' ? '#55cc44' : props.status === 'Dead' ? '#d63d2e' : '#9e9e9e')};
+              props.status === 'Alive' ? '#55cc44' : props.status === 'Dead' ? '#d63d2e' : '#9e9e9e'};
             vertical-align:middle;
           }
 
@@ -68,6 +68,7 @@ const Wrapper = styled.div<IStatusProps>`
     }
 
     .card-image{
+      
       .image{
         max-width: 100%;
       }
@@ -102,7 +103,17 @@ interface ICardProps {
   characterInfo: (id: number) => void;
 }
 
-export const Card: React.FC<ICardProps> = ({ name, photo, status, location, episode, id, species, characterInfo }) => (
+export const Card: React.FC<ICardProps> = (
+  { 
+    name, 
+    photo, 
+    status, 
+    location, 
+    episode, 
+    id, 
+    species, 
+    characterInfo 
+  }) => (
   <Wrapper status={status} >
     <div className="card-title">{name}</div>
     <div className="card-body">
@@ -126,6 +137,11 @@ export const Card: React.FC<ICardProps> = ({ name, photo, status, location, epis
         <img className="image" src={photo} alt={name}/>
       </div>
     </div>
-    <button onClick={() => characterInfo(id)} className="card-button">All info about {name}</button>
+    <button 
+      onClick={() => characterInfo(id)} 
+      className="card-button"
+    >
+        All info about {name}
+    </button>
   </Wrapper>
 );

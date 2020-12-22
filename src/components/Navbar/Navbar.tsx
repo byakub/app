@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -39,11 +38,7 @@ const Wrapper = styled.div`
 
 `;
 
-interface ICardProps {
-  
-}
-
-export const Navbar: React.FC<ICardProps> = () => {
+export const Navbar: React.FC = () => {
   return(
     <Wrapper>
       <div className="navbar-sitename">

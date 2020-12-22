@@ -1,17 +1,14 @@
 import React, { useEffect } from 'react';
+import { useHistory, useParams  } from 'react-router-dom';
+import styled from 'styled-components';
 
 import moment from 'moment';
 
+import { DateFormatConst } from 'consts';
 import {
   HandleCharacterAction,
   ICharacter,
 } from 'store';
-
-import styled from 'styled-components';
-
-import { DateFormatConst } from 'consts';
-
-import { useHistory, useParams  } from 'react-router-dom';
 
 const Wrapper = styled.div`
   position: relative;
@@ -52,34 +49,31 @@ const Wrapper = styled.div`
         max-width: 100%;
         height: auto;
       }
-  }
-  .profile-info{
-    align-self: center;
-    justify-self: center;
-    line-height: 1;
-    padding-top: 4rem;
-    color: #44281d;
-
-    h2{
-      
-      font-weight: 800;
-      padding: 0.3rem 0;
     }
+    .profile-info{
+      align-self: center;
+      justify-self: center;
+      line-height: 1;
+      padding-top: 4rem;
+      color: #44281d;
 
-    h3{
-      padding-left: 1rem;
-      font-weight: 600;
+      h2{
+        font-weight: 800;
+        padding: 0.3rem 0;
+      }
+
+      h3{
+        padding-left: 1rem;
+        font-weight: 600;
+      }
     }
   }
-  }
-  
 `;
 
 interface ICharacterProfile {
   character: ICharacter;
   handleCharacterAction: HandleCharacterAction;
 }
-
 interface IParamTypes {
   id: string;
 }
@@ -87,13 +81,8 @@ interface IParamTypes {
 export const CharacterProfile: React.FC<ICharacterProfile> = props => {
 
   const { id } = useParams<IParamTypes>();
-
   const history = useHistory();
-
-  const backPageHandler = () => {
-    history.goBack();
-  };
-
+  const backPageHandler = () => history.goBack();
   const {
     character,
     handleCharacterAction

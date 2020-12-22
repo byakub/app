@@ -1,4 +1,5 @@
 import { IPromiseAction } from 'types';
+
 import { ICharacter, IGetCharactersResponce } from './types';
 
 export enum CharactersActionTypeKeys {

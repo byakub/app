@@ -6,14 +6,11 @@ import {
   ISetCharacterActionType,
   ISetCurrentPageActionType
 } from './actionTypes';
-
+import * as api from './api';
+import { selectCharacters } from './selectors';
 import { ICharacter } from './types';
 
-import { selectCharacters } from './selectors';
-
 import { IThunk } from 'types';
-
-import * as api from './api';
 
 export type GetInitCharactersAction = () => IGetInitCharactersActionType;
 
@@ -55,7 +52,6 @@ export type HandleCharacterAction = (id: number) => IThunk<void>;
 export const handleCharacterAction: HandleCharacterAction = id => async (dispatch, getState) => {
   const characters = selectCharacters(getState());
   const character = characters.find(char => char.id === id);
-  console.log(character,'character');
   character !== undefined ? 
     dispatch(setCharacterAction(character))
     :

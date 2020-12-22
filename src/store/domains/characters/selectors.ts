@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect';
-
 import { IStoreState } from 'store';
 
 export const selectCharacter = (state: IStoreState) => state.characters.character;

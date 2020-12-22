@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const Wrapper = styled.div`
   margin-top:-350px;
   height: 3rem;
@@ -23,11 +22,7 @@ const Wrapper = styled.div`
 
 `;
 
-interface ICardProps {
-  
-}
-
-export const Footer: React.FC<ICardProps> = () => {
+export const Footer: React.FC = () => {
   return(
     <Wrapper>
       <div className="footer-info">

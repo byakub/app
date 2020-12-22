@@ -1,18 +1,10 @@
 import React, { useEffect } from 'react';
-
-import { ImmutableArray, ImmutableObject } from 'seamless-immutable';
-
-import styled from 'styled-components';
-
-import { Pagination } from 'antd';
-
-import { Card } from 'components';
-
 import { Redirect } from 'react-router';
-
 import { useHistory } from 'react-router-dom';
 
-import { RouteConst } from 'consts';
+import { Pagination } from 'antd';
+import { ImmutableArray, ImmutableObject } from 'seamless-immutable';
+import styled from 'styled-components';
 
 import {
   HandleCharactersPageAction,
@@ -20,6 +12,8 @@ import {
   ICharactersMeta,
   SetCurrentPageAction
 } from 'store';
+
+import { Card } from 'components';
 
 const Wrapper = styled.div`
   position: relative;
@@ -48,23 +42,16 @@ export const Characters: React.FC<ICharacters> = props => {
   } = props;
 
   const history = useHistory();
+  const setPageHandler = (pageNum: number) => setCurrentPageAction(pageNum);
+  const characterInfoHandler = (id: number) => history.push(`/character/${id}`);
 
   useEffect(() => {
     handleCharactersPageAction(metaCharacters.page);
     window.scrollTo(0, 0);
   }, [metaCharacters.page]);
 
-  const setPageHandler = (pageNum: number) => {
-    setCurrentPageAction(pageNum);
-  };
-
-  const characterInfoHandler = (id: number) => {
-    history.push(`/character/${id}`);
-  };
-  
   return (
     <>
-      {metaCharacters.count === 0 && <Redirect to={RouteConst.Root} />}
       <Wrapper>
       {characters.map((char: ImmutableObject<ICharacter>) => {
         return (
